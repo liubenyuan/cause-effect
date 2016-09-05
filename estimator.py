@@ -43,8 +43,6 @@ selected_features = [
     'Discrete Entropy[A,A type]',
     'Discrete Entropy[B,B type]',
     'Discrete Mutual Information[A,A type,B,B type]',
-    'Gaussian Divergence[A,A type]',
-    'Gaussian Divergence[B,B type]',
     'HSIC[A,A type,B,B type]',
     'IGCI[A,A type,B,B type]',
     'IGCI[B,B type,A,A type]',
@@ -61,8 +59,6 @@ selected_features = [
     'Normalized Discrete Entropy[B,B type]',
     'Normalized Discrete Mutual Information[Discrete Mutual Information[A,A type,B,B type],Discrete Joint Entropy[A,A type,B,B type]]',
     'Normalized Discrete Mutual Information[Discrete Mutual Information[A,A type,B,B type],Min[Discrete Entropy[A,A type],Discrete Entropy[B,B type]]]',
-    'Normalized Entropy Baseline[A,A type]',
-    'Normalized Entropy Baseline[B,B type]',
     'Normalized Entropy[A,A type]',
     'Normalized Entropy[B,B type]',
     'Normalized Error Probability[A,A type,B,B type]',
@@ -83,15 +79,14 @@ selected_features = [
 class Pipeline(pipeline.Pipeline):
     def predict(self, X):
         try:
-            p = pipeline.Pipeline.predict_proba(self, X)
+            p = super(Pipeline, self).predict_proba(X)
             if p.shape[1] == 2:
                 p = p[:,1]
             elif p.shape[1] == 3:
                 p = p[:,2] - p[:,0]
         except AttributeError:
-            p = pipeline.Pipeline.predict(self, X)
+            p = super(Pipeline, self).predict(X)
         return p
-
 
 def get_pipeline(features, regressor=None, params=None):
     steps = [

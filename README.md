@@ -12,8 +12,8 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-code version: 2.01
-code date: 04-OCT-2013
+code version: 2.02
+code date: 09-OCT-2013
 installation instructions: python 2.7 code. No installation required
 required python modules: numpy, pandas, sklearn, scipy
 Tested on a Linux machine (Fedora 17) with python 2.7.3 and the following versions of the python libraries
@@ -32,15 +32,14 @@ FAST TEST (first 9 entries of the validation data)
 Time to process: 10 seconds
 Results: (CEfinal_valid_predictions_head.csv rounded to 4 decimals places)
 SampleID,Target
-valid1, 0.6007
-valid2,-0.0150
-valid3,-0.0002
-valid4, 0.0021
-valid5, 0.0005
-valid6,-0.6944
-valid7,-0.2153
-valid8,-0.0000
-valid9,-0.0058
+valid1, 0.70
+valid2, 0.00
+valid3, 0.00
+valid4, 0.00
+valid5, 0.00
+valid6,-0.55
+valid7,-0.14
+valid8, 0.00
+valid9,-0.01
 
 See the data page of the Kaggle cause-effect competition for information about the data
-
